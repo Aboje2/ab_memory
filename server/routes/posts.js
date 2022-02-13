@@ -8,6 +8,7 @@ import {
   deletePost,
   likePost,
   getPostBySearch,
+  comment,
 } from "../controller/posts.js";
 
 const routes = express.Router();
@@ -19,4 +20,5 @@ routes.post("/", auth, createPost);
 routes.patch("/:id", auth, updatePosts);
 routes.delete("/:id", auth, deletePost);
 routes.patch("/:id/likepost", auth, likePost);
+routes.post("/:id/commentPost", auth, comment);
 export default routes;

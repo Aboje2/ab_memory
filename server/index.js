@@ -13,13 +13,12 @@ app.use(bodyParser.urlencoded({ limit: "30mb", extended: true }));
 app.use(cors());
 app.use("/posts", postRoutes);
 app.use("/users", userRoutes);
-app.get("/", (res, req) => {
-  res.send("Welcome to memories API");
+
+app.get("/", (req, res) => {
+  res.send("Welcome to our memories API");
 });
 
 const PORT = process.env.PORT || 5000;
-// const CONNECTION_URL =
-//   "mongodb+srv://solomon2:Default85@cluster0.s44zd.mongodb.net/solomon?retryWrites=true&w=majority";
 mongoose
   .connect(process.env.CONNECTION_URL, {
     useNewUrlParser: true,
@@ -33,3 +32,5 @@ mongoose
   .catch((error) => console.log(error.message));
 
 mongoose.set("useFindAndModify", false);
+
+//mongodb://127.0.0.1:27017/test1
